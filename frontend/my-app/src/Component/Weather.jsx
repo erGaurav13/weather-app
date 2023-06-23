@@ -35,8 +35,9 @@ console.log(data)
   display={"grid"} 
   justifyItems={"center"}
   alignContent={"center"}
-  
-  >         
+  boxShadow='dark-lg'
+  >       
+    {/*Weather app Heading  */}
    <Box >
     <Heading textAlign={"center"} color={"white"}>Weather App</Heading>
     </Box>
@@ -44,15 +45,16 @@ console.log(data)
           <Box w={{ sm:"100%",lg:"50%" }} display={"flex"}>
            
             <Box w="90%" color={"white"}>
-
+                
+            {/* Collect city name */}
             <Input  onChange={handelChange}  placeholder='Search City ...' />
             </Box>
             <Box> 
-             {loading===true?<CircularProgress size="40px"  />:  <Button onClick={()=>handelClick(location)}><FcSearch/></Button>}
+             {loading===true?<CircularProgress size="40px"  /> : <Button onClick={()=>handelClick(location)}><FcSearch/></Button>}
             </Box>     
           </Box>
           </Box>
-
+{/* Weather card */}
           <Box w={{ sm:"100%",lg:"40%" }} p="2%" m="auto"  mt="2px" borderRadius= {"10px"}  overflow={"hidden"}>
              {data.length===0?false:<Card data={data}/>}  
           </Box>
