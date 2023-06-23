@@ -12,7 +12,7 @@ function Weather() {
     }
     const handelClick=  (location)=>{
         setLoading(true)
-        let url=`http://localhost:8080/weather/${location}`
+        let url=`https://weather-a9yf.onrender.com/weather/${location}`
             fetch(url,).then((res)=>res.json())
             .then((data)=>{
                 setData(data )
@@ -28,10 +28,8 @@ function Weather() {
 console.log(data)
   return (
     < >
-    <Box w="100%" h="48vh"  
-    backgroundImage="url('https://coolwallpapers.me/picsup/6137966-2017-lightning-storm-weather-picture.jpg')"
-  backgroundPosition="center"
-  backgroundRepeat="no-repeat"
+    <Box w="100%" h="100vh"  
+    backgroundColor={"#037bff"}
   display={"grid"} 
   justifyItems={"center"}
   alignContent={"center"}
@@ -44,20 +42,21 @@ console.log(data)
    
           <Box w={{ sm:"100%",lg:"50%" }} display={"flex"}>
            
-            <Box w="90%" color={"white"}>
+            <Box w="90%"  >
                 
             {/* Collect city name */}
-            <Input  onChange={handelChange}  placeholder='Search City ...' />
+            <Input  onChange={handelChange} background={"white"}/>
             </Box>
             <Box> 
              {loading===true?<CircularProgress size="40px"  /> : <Button onClick={()=>handelClick(location)}><FcSearch/></Button>}
             </Box>     
           </Box>
-          </Box>
-{/* Weather card */}
           <Box w={{ sm:"100%",lg:"40%" }} p="2%" m="auto"  mt="2px" borderRadius= {"10px"}  overflow={"hidden"}>
              {data.length===0?false:<Card data={data}/>}  
           </Box>
+          </Box>
+{/* Weather card */}
+        
     
     </>
   )

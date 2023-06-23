@@ -3,13 +3,16 @@ import { Box , Heading } from '@chakra-ui/react'
  
 import { WiHumidity } from "react-icons/wi";
 function Card({data}) {
-     const {name,main,weather}=data.data;
+  if(data.data.message=="city not found"){
+    
+        return <>City not found try another</>
+    }
+     const {name,main,weather}=data?.data;
      const {temp,humidity }=main
   return (  
     
-      <Box w="100%"  h="48vh"  backgroundImage="url('https://i.gifer.com/embedded/download/MwcO.gif')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
+      <Box w="100%"  h="48vh"  
+      backgroundColor={"#000090"}
       overflow={"hidden"}
       borderRadius={"10px"}
       boxShadow='dark-lg'
